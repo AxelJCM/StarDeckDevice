@@ -85,6 +85,10 @@ void loop() {
       totalCards -= 1;
       
       }else{
+        lcd.clear();
+        lcd.print("Error: Ya no se");
+        lcd.setCursor(0,1);
+        lcd.print("puede seleccionar");
         while(totalCards != 0){
           analogWrite(motorSright, 255); // Establecer la velocidad máxima (sentido de giro depende de la conexión)
           delay(500);
@@ -96,10 +100,6 @@ void loop() {
           // aumentar contadores
          totalCards -= 1;
           }
-        lcd.clear();
-        lcd.print("Error: Ya no se");
-        lcd.setCursor(0,1);
-        lcd.print("puede seleccionar");
         }
     }else{
       // encender motores izq por 500ms
