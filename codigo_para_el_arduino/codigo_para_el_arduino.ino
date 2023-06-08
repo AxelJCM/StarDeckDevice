@@ -85,16 +85,17 @@ void loop() {
       totalCards -= 1;
       
       }else{
-        // encender motores izq por 500ms
-        analogWrite(motorSright, 255); // Establecer la velocidad máxima (sentido de giro depende de la conexión)
-        delay(1000);
-        analogWrite(motorGright, 255);
-        delay(1000); // Esperar 1 segundos
+        while(totalCards != 0){
+          analogWrite(motorSright, 255); // Establecer la velocidad máxima (sentido de giro depende de la conexión)
+          delay(500);
+          analogWrite(motorGright, 255);
+          delay(500); // Esperar 1 segundos
         // Detener el motor
-        analogWrite(motorGright, 0);
-        analogWrite(motorSright, 0);
-        // aumentar contadores
-        totalCards -= 1;
+          analogWrite(motorGright, 0);
+          analogWrite(motorSright, 0);
+          // aumentar contadores
+         totalCards -= 1;
+          }
         lcd.clear();
         lcd.print("Error: Ya no se");
         lcd.setCursor(0,1);
