@@ -89,16 +89,29 @@ void loop() {
         lcd.print("Error: Ya no se");
         lcd.setCursor(0,1);
         lcd.print("puede seleccionar");
+        delay(2000);
+        lcd.clear();
         while(totalCards != 0){
           analogWrite(motorSright, 255); // Establecer la velocidad máxima (sentido de giro depende de la conexión)
           delay(500);
           analogWrite(motorGright, 255);
           delay(500); // Esperar 1 segundos
-        // Detener el motor
+          // Detener el motor
           analogWrite(motorGright, 0);
           analogWrite(motorSright, 0);
+          
+          //Si el circuito esta encendido
+          //Cantidad de cartas seleccionadas por el usuario
+          lcd.print("Cant Select:");
+          //Cantidad de cartas del Deck restantes
+          lcd.setCursor(0,1);
+          lcd.print("Restantes:");
+          lcd.setCursor(11, 1);
+          lcd.print(totalCards);
+          lcd.setCursor(13, 0);
+          lcd.print(selCards);
           // aumentar contadores
-         totalCards -= 1;
+          totalCards -= 1;
           }
         }
     }else{
