@@ -99,7 +99,7 @@ void loop() {
           // Detener el motor
           analogWrite(motorGright, 0);
           analogWrite(motorSright, 0);
-          
+          lcd.clear();
           //Si el circuito esta encendido
           //Cantidad de cartas seleccionadas por el usuario
           lcd.print("Cant Select:");
